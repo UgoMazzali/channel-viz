@@ -179,13 +179,6 @@
 									});
 									yAxis.render();
 									
-									// Inserita legenda di prova
-									var legend = new Rickshaw.Graph.Legend({
-									    graph: graph,
-									    element: document.querySelector('#graph')
-									});
-
-
 									// Enable Datapoint Hover Values
 									var hoverDetail = new Rickshaw.Graph.HoverDetail({
 										graph: graph,
@@ -195,6 +188,23 @@
 											return content;
 										}
 									});
+									
+									//Inserita legenda di prova									// Inserita legenda di prova
+									var legend = new Rickshaw.Graph.Legend({
+									    graph: graph,
+									    element: document.querySelector('#graph')
+									});
+									
+									var shelving = new Rickshaw.Graph.Behavior.Series.Toggle({
+									    graph: graph,
+									    legend: legend
+									});
+									
+									var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight({
+									    graph: graph,
+									    legend: legend
+									});
+
 
 									$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .slider').prop('id', 'slider-' + feedId + '-' + datastream.id);
 									var slider = new Rickshaw.Graph.RangeSlider({
